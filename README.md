@@ -1,5 +1,10 @@
 # goreturn
 
+[![Tests](https://github.com/Eyal-Shalev/goreturn/actions/workflows/test.yml/badge.svg)](https://github.com/Eyal-Shalev/goreturn/actions/workflows/test.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Eyal-Shalev/goreturn)](https://goreportcard.com/report/github.com/Eyal-Shalev/goreturn)
+[![GoDoc](https://godoc.org/github.com/Eyal-Shalev/goreturn?status.svg)](https://godoc.org/github.com/Eyal-Shalev/goreturn)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 `goreturn` is a Go library that provides a set of functions to run a function in a goroutine and return its result(s) in a channel. This library is designed to make it easier to work with goroutines and channels in Go, especially when dealing with functions that return multiple values.
 
 ## Features
