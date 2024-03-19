@@ -13,7 +13,7 @@
 
 To install `goreturn`, use the `go get` command:
 
-```go
+```shell
 go get github.com/Eyal-Shalev/goreturn
 ```
 
