@@ -1,6 +1,6 @@
 # goreturn
 
-[![Tests](https://github.com/Eyal-Shalev/goreturn/actions/workflows/test.yml/badge.svg)](https://github.com/Eyal-Shalev/goreturn/actions/workflows/test.yml)
+[![Tests](https://github.com/Eyal-Shalev/goreturn/actions/workflows/test.yaml/badge.svg)](https://github.com/Eyal-Shalev/goreturn/actions/workflows/test.yaml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/Eyal-Shalev/goreturn)](https://goreportcard.com/report/github.com/Eyal-Shalev/goreturn)
 [![GoDoc](https://godoc.org/github.com/Eyal-Shalev/goreturn?status.svg)](https://godoc.org/github.com/Eyal-Shalev/goreturn)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
