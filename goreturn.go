@@ -6,6 +6,7 @@ func Return0(fn func()) <-chan any {
 	go func() {
 		fn()
 		c <- nil
+		close(c)
 	}()
 	return c
 }
@@ -15,6 +16,7 @@ func Return1[T1 any](fn func() T1) <-chan T1 {
 	c := make(chan T1)
 	go func() {
 		c <- fn()
+		close(c)
 	}()
 	return c
 }
@@ -31,6 +33,7 @@ func Return2[T1 any, T2 any](fn func() (T1, T2)) <-chan *Tuple[T1, T2] {
 	go func() {
 		v1, v2 := fn()
 		c <- &Tuple[T1, T2]{v1, v2}
+		close(c)
 	}()
 	return c
 }
@@ -48,6 +51,7 @@ func Return3[T1 any, T2 any, T3 any](fn func() (T1, T2, T3)) <-chan *Tuple3[T1, 
 	go func() {
 		v1, v2, v3 := fn()
 		c <- &Tuple3[T1, T2, T3]{v1, v2, v3}
+		close(c)
 	}()
 	return c
 }

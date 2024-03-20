@@ -21,13 +21,22 @@ func TestReturn0(t *testing.T) {
 	case <-time.After(time.Millisecond):
 		t.Errorf("Return0() took too long to return")
 	}
+	select {
+	case v := <-c:
+		if v != nil {
+			t.Errorf("Return0() sent a non-nil value")
+		}
+	default:
+		t.Errorf("Return0() did not close the channel")
+	}
 }
 
 func TestReturn1(t *testing.T) {
 	called := false
-	fn := func() int {
+	fn := func() *int {
 		called = true
-		return 42
+		val := 42
+		return &val
 	}
 	c := goreturn.Return1(fn)
 	select {
@@ -35,11 +44,19 @@ func TestReturn1(t *testing.T) {
 		if !called {
 			t.Errorf("Return1() did not call the function")
 		}
-		if v != 42 {
+		if *v != 42 {
 			t.Errorf("Return1() did not return the expected value")
 		}
 	case <-time.After(time.Millisecond):
 		t.Errorf("Return1() took too long to return")
+	}
+	select {
+	case v := <-c:
+		if v != nil {
+			t.Errorf("Return1() sent a non-nil value")
+		}
+	default:
+		t.Errorf("Return1() did not close the channel")
 	}
 }
 
@@ -61,6 +78,14 @@ func TestReturn2(t *testing.T) {
 	case <-time.After(time.Millisecond):
 		t.Errorf("Return2() took too long to return")
 	}
+	select {
+	case v := <-c:
+		if v != nil {
+			t.Errorf("Return2() sent a non-nil value")
+		}
+	default:
+		t.Errorf("Return2() did not close the channel")
+	}
 }
 
 func TestReturn3(t *testing.T) {
@@ -80,5 +105,12 @@ func TestReturn3(t *testing.T) {
 		}
 	case <-time.After(time.Millisecond):
 		t.Errorf("Return3() took too long to return")
+	}
+	select {
+	case v := <-c:
+		if v != nil {
+			t.Errorf("Return3() did not close the channel")
+		}
+	default:
 	}
 }
